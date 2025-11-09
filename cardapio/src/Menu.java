@@ -17,6 +17,12 @@ class Menu {
         cardapio.inserir(new Prato("Pizza Margherita", 42.00, 25));
         cardapio.inserir(new Prato("Strogonoff", 32.00, 35));
         cardapio.inserir(new Prato("Picanha", 65.00, 40));
+
+        cardapio.inserir(new Prato("Marcarrão", 22.90, 35));
+        cardapio.inserir(new Prato("Cachorro Quente", 18.50, 20));
+        cardapio.inserir(new Prato("Hambueguer", 30.00, 30));
+        cardapio.inserir(new Prato("Suco de Maracujá", 12.00, 10));
+        cardapio.inserir(new Prato("Vinho", 45.00, 30));
     }
 
     public void executar() {
@@ -200,6 +206,7 @@ class Menu {
             for (int j = 0; j < n - i - 1; j++) {
                 // se os elementos estão fora de ordem, troca
                 if (comparar(pratos[j], pratos[j + 1], criterio) > 0) {
+                    System.out.println("O pivo é: " + pratos[i]);
                     Prato temp = pratos[j];
                     pratos[j] = pratos[j + 1];
                     pratos[j + 1] = temp;
@@ -215,6 +222,7 @@ class Menu {
 
         for (int i = 1; i < n; i++) {
             Prato chave = pratos[i];
+            System.out.println("O pivo é: " + chave);
             int j = i - 1;
 
             // move os elementos maiores uma posição para frente
@@ -233,7 +241,7 @@ class Menu {
         if (inicio < fim) {
             // encontra a posição final do pivô
             int indicePivo = particionar(pratos, inicio, fim, criterio);
-
+            System.out.println("O pivo é: " + pratos[indicePivo]);
             // ordena a parte esquerda (elementos menores)
             quickSort(pratos, inicio, indicePivo - 1, criterio);
 
